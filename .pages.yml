@@ -1,0 +1,26 @@
+
+media:
+  input: images
+  output: /images
+
+content:
+  - name: produits
+    label: Produits
+    type: collection
+    path: _produits
+    filename: "{primary}.md"
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Nom du produit
+        type: string
+      - name: prix
+        label: Prix en FCFA
+        type: number
+      - name: image
+        label: Photo
+        type: image
+      - name: description
+        label: Description
+        type: text
+        required: false
