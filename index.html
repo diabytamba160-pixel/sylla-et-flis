@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boutique Sylla & Fils - Ustensiles de Cuisine (Gros & Détail)</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome pour les icônes (dont WhatsApp) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts - Montserrat & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              gold: '#D4AF37',
+              darkgold: '#B8860B',
+              green: '#25D366',
+              darkgreen: '#128C7E',
+              dark: '#111827',
+              navy: '#0F172A',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+
+  <!-- BARRE D'INFORMATION EN HAUT -->
+  <div class="bg-brand-navy text-white text-xs md:text-sm py-2 px-4 shadow-inner">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-location-dot text-brand-gold"></i>
+        <span>Niaréla, près de la Grande Mosquée de Bamako</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="bg-brand-gold text-black font-semibold px-2 py-0.5 rounded text-xs uppercase tracking-wider">Vente en Gros & Détail</span>
+        <a href="#contacts" class="hover:text-brand-gold transition-colors text-xs flex items-center gap-1">
+          <i class="fa-brands fa-whatsapp text-brand-green"></i> Contact Direct
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        
+        <!-- LOGO -->
+        <a href="#" class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-gold to-brand-darkgold flex items-center justify-center text-white font-bold text-xl shadow-lg border-2 border-white">
+            <i class="fa-solid fa-utensils"></i>
+          </div>
+          <div>
+            <span class="block font-heading font-extrabold text-xl md:text-2xl text-gray-900 leading-none">
+              SYLLA <span class="text-brand-darkgold">&</span> FILS
+            </span>
+            <span class="text-xs text-gray-500 font-medium tracking-widest uppercase block mt-1">Ustensiles de Cuisine</span>
+          </div>
+        </a>
+
+        <!-- MENU DESKTOP -->
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-gray-700">
+          <a href="#accueil" class="hover:text-brand-darkgold transition-colors">Accueil</a>
+          <a href="#catalogue" class="hover:text-brand-darkgold transition-colors">Catalogue</a>
+          <a href="#vendeurs" class="hover:text-brand-darkgold transition-colors">Nos Vendeurs</a>
+          <a href="#localisation" class="hover:text-brand-darkgold transition-colors">Localisation</a>
+        </nav>
+
+        <!-- BOUTON URGENCE WHATSAPP -->
+        <div class="hidden md:flex items-center">
+          <a href="https://wa.me/22376219117?text=Bonjour%20Boutique%20Sylla%20%26%20Fils,%20je%20souhaite%20me%20renseigner." target="_blank" class="flex items-center gap-2 bg-brand-green hover:bg-brand-darkgreen text-white px-4 py-2.5 rounded-full font-medium text-sm transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>Commander vite</span>
+          </a>
+        </div>
+
+        <!-- BOUTON MOBILE MENU -->
+        <button id="menu-btn" class="md:hidden text-gray-700 focus:outline-none p-2" aria-label="Ouvrir le menu">
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- MENU MOBILE OVERLAY -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3">
+      <a href="#accueil" class="mobile-link block py-2 px-3 text-base font-medium text-gray-700 rounded-md hover:bg-gray-100">Accueil</a>
+      <a href="#catalogue" class="mobile-link block py-2 px-3 text-base font-medium text-gray-700 rounded-md hover:bg-gray-100">Catalogue</a>
+      <a href="#vendeurs" class="mobile-link block py-2 px-3 text-base font-medium text-gray-700 rounded-md hover:bg-gray-100">Nos Vendeurs</a>
+      <a href="#localisation" class="mobile-link block py-2 px-3 text-base font-medium text-gray-700 rounded-md hover:bg-gray-100">Localisation</a>
+      <a href="https://wa.me/22376219117?text=Bonjour%20Boutique%20Sylla%20%26%20Fils" target="_blank" class="w-full flex items-center justify-center gap-2 bg-brand-green text-white py-3 rounded-xl font-semibold shadow">
+        <i class="fa-brands fa-whatsapp text-xl"></i> Contact WhatsApp Direct
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <!-- HERO SECTION -->
+    <section id="accueil" class="relative bg-brand-navy text-white py-16 lg:py-24 overflow-hidden">
+      <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          <div class="text-center lg:text-left space-y-6">
+            <div class="inline-flex items-center gap-2 bg-brand-gold/20 border border-brand-gold/40 text-brand-gold px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
+              <i class="fa-solid fa-store"></i> Qualité Supérieure & Meilleurs Prix à Bamako
+            </div>
+            
+            <h1 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+              Tout le matériel de cuisine en <span class="text-brand-gold">Gros & Détail</span>
+            </h1>
+            
+            <p class="text-gray-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
+              Marmites en inox, séries émaillées fleurs, électroménager et équipement complet pour votre maison ou votre commerce. Retrouvez-nous à Niaréla près de la Grande Mosquée.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2">
+              <a href="#catalogue" class="bg-brand-gold hover:bg-brand-darkgold text-gray-900 font-bold px-8 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all text-center">
+                Voir les produits
+              </a>
+              <a href="#vendeurs" class="border-2 border-white/30 hover:border-white text-white font-semibold px-8 py-3.5 rounded-xl transition-all text-center flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-brand-green text-xl"></i> Parler à un vendeur
+              </a>
+            </div>
+
+            <!-- BADGES RASSURANTS -->
+            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10 text-center lg:text-left">
+              <div>
+                <p class="font-heading font-bold text-xl text-brand-gold">100%</p>
+                <p class="text-xs text-gray-400">Qualité Garantie</p>
+              </div>
+              <div>
+                <p class="font-heading font-bold text-xl text-brand-gold">Gros/Détail</p>
+                <p class="text-xs text-gray-400">Tarifs Adaptés</p>
+              </div>
+              <div>
+                <p class="font-heading font-bold text-xl text-brand-gold">Niaréla</p>
+                <p class="text-xs text-gray-400">Bamako, Mali</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- BANNIÈRE VISUELLE -->
+          <div class="relative">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
+              <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1000&auto=format&fit=crop" alt="Ustensiles de cuisine Boutique Sylla" class="w-full h-[380px] sm:h-[450px] object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                <div class="text-white">
+                  <p class="font-heading font-bold text-lg text-brand-gold">Boutique Sylla & Fils</p>
+                  <p class="text-xs text-gray-300">Votre partenaire de confiance pour équiper votre cuisine.</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Flottant Badge -->
+            <div class="absolute -bottom-6 -left-6 bg-white text-gray-900 p-4 rounded-xl shadow-xl hidden sm:flex items-center gap-3 border border-gray-100">
+              <div class="w-10 h-10 rounded-full bg-brand-green/20 text-brand-green flex items-center justify-center text-xl">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+              <div>
+                <p class="text-xs font-bold uppercase text-gray-500">Service client</p>
+                <p class="text-sm font-extrabold text-gray-800">4 Lignes Vendeurs</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION VENDEURS / CONTACTS WHATSAPP -->
+    <section id="vendeurs" class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-brand-darkgold font-semibold text-sm uppercase tracking-wider">Équipe commerciale</span>
+          <h2 class="font-heading text-2xl sm:text-3xl font-bold text-gray-900 mt-1">
+            Contactez directement nos vendeurs sur WhatsApp
+          </h2>
+          <p class="text-gray-600 text-sm sm:text-base mt-2">
+            Cliquez sur un numéro ci-dessous pour discuter directement avec l'un de nos responsables de vente.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="contacts">
+          
+          <!-- VENDEUR 1 : SYLLA -->
+          <div class="bg-gradient-to-b from-gray-50 to-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all text-center flex flex-col justify-between">
+            <div>
+              <div class="w-16 h-16 bg-brand-gold/20 text-brand-darkgold rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold font-heading">
+                S
+              </div>
+              <h3 class="font-heading font-bold text-lg text-gray-900">SYLLA</h3>
+              <p class="text-xs text-brand-darkgold font-semibold uppercase tracking-wider mb-2">Responsable Ventes</p>
+              <p class="text-gray-600 text-sm font-semibold mb-6">76 21 91 17</p>
+            </div>
+            <a href="https://wa.me/22376219117?text=Bonjour%20M.%20Sylla,%20je%20souhaite%20des%20informations%20sur%20vos%20ustensiles." target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-brand-green hover:bg-brand-darkgreen text-white font-medium py-2.5 px-4 rounded-xl transition-all text-sm">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span>WhatsApp Sylla</span>
+            </a>
+          </div>
+
+          <!-- VENDEUR 2 : BAINE -->
+          <div class="bg-gradient-to-b from-gray-50 to-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all text-center flex flex-col justify-between">
+            <div>
+              <div class="w-16 h-16 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold font-heading">
+                B
+              </div>
+              <h3 class="font-heading font-bold text-lg text-gray-900">BAINE</h3>
+              <p class="text-xs text-blue-600 font-semibold uppercase tracking-wider mb-2">Service Commandes</p>
+              <p class="text-gray-600 text-sm font-semibold mb-6">94 78 44 83</p>
+            </div>
+            <a href="https://wa.me/22394784483?text=Bonjour%20M.%20Baine,%20je%20souhaite%20passer%20une%20commande." target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-brand-green hover:bg-brand-darkgreen text-white font-medium py-2.5 px-4 rounded-xl transition-all text-sm">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span>WhatsApp Baine</span>
+            </a>
+          </div>
+
+          <!-- VENDEUR 3 : KADA -->
+          <div class="bg-gradient-to-b from-gray-50 to-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all text-center flex flex-col justify-between">
+            <div>
+              <div class="w-16 h-16 bg-purple-100 text-purple-700 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold font-heading">
+                K
+              </div>
+              <h3 class="font-heading font-bold text-lg text-gray-900">KADA</h3>
+              <p class="text-xs text-purple-600 font-semibold uppercase tracking-wider mb-2">Conseiller Vente Gros</p>
+              <p class="text-gray-600 text-sm font-semibold mb-6">78 15 55 18</p>
+            </div>
+            <a href="https://wa.me/22378155518?text=Bonjour%20M.%20Kada,%20je%20souhaite%20connaître%20les%20tarifs%20en%20gros." target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-brand-green hover:bg-brand-darkgreen text-white font-medium py-2.5 px-4 rounded-xl transition-all text-sm">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span>WhatsApp Kada</span>
+            </a>
+          </div>
+
+          <!-- VENDEUR 4 : MODIBO -->
+          <div class="bg-gradient-to-b from-gray-50 to-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all text-center flex flex-col justify-between">
+            <div>
+              <div class="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold font-heading">
+                M
+              </div>
+              <h3 class="font-heading font-bold text-lg text-gray-900">MODIBO</h3>
+              <p class="text-xs text-emerald-600 font-semibold uppercase tracking-wider mb-2">Service Client</p>
+              <p class="text-gray-600 text-sm font-semibold mb-6">79 57 13 05</p>
+            </div>
+            <a href="https://wa.me/22379571305?text=Bonjour%20M.%20Modibo,%20je%20souhaite%20un%20renseignement." target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-brand-green hover:bg-brand-darkgreen text-white font-medium py-2.5 px-4 rounded-xl transition-all text-sm">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span>WhatsApp Modibo</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION CATALOGUE PRODUITS -->
+    <section id="catalogue" class="py-16 bg-gray-50 border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+          <div>
+            <span class="text-brand-darkgold font-semibold text-sm uppercase tracking-wider">Notre Vaste Choix</span>
+            <h2 class="font-heading text-2xl sm:text-3xl font-bold text-gray-900 mt-1">
+              Catalogue d'Ustensiles & Équipements
+            </h2>
+          </div>
+
+          <!-- FILTRES DE RECHERCHE -->
+          <div class="flex flex-wrap gap-2" id="filters">
+            <button class="filter-btn active bg-brand-darkgold text-white px-4 py-2 rounded-lg text-xs font-semibold" data-category="all">
+              Tous
+            </button>
+            <button class="filter-btn bg-white text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg text-xs font-semibold border border-gray-200" data-category="marmites">
+              Marmites & Casseroles
+            </button>
+            <button class="filter-btn bg-white text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg text-xs font-semibold border border-gray-200" data-category="emailles">
+              Séries Émaillées
+            </button>
+            <button class="filter-btn bg-white text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg text-xs font-semibold border border-gray-200" data-category="electro">
+              Petit Électroménager
+            </button>
+            <button class="filter-btn bg-white text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-lg text-xs font-semibold border border-gray-200" data-category="accessoires">
+              Accessoires
+            </button>
+          </div>
+        </div>
+
+        <!-- GRILLE PRODUITS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="product-grid">
+          
+          <!-- PRODUIT 1 -->
+          <div class="product-card bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between" data-category="marmites">
+            <div>
+              <div class="relative overflow-hidden h-52 bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1584992236310-6edddc08acff?q=80&w=800&auto=format&fit=crop" alt="Série de Marmites Inox" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+                <span class="absolute top-3 left-3 bg-brand-gold text-gray-900 text-xs font-bold px-2.5 py-1 rounded">Gros & Détail</span>
+              </div>
+              <div class="p-5">
+                <h3 class="font-heading font-bold text-lg text-gray-900">Série Marmites Inox Récurées</h3>
+                <p class="text-xs text-gray-500 mt-1">Set complet de 5 à 10 marmites haute résistance pour ménage et événements.</p>
+              </div>
+            </div>
+            <div class="p-5 pt-0">
+              <a href="https://wa.me/22376219117?text=Bonjour%20Boutique%20Sylla,%20je%20suis%20intéressé(e)%20par%20la%20Série%20Marmites%20Inox." target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-brand-green text-white font-medium py-2.5 rounded-xl transition-colors text-sm">
+                <i class="fa-brands fa-whatsapp text-lg text-brand-green"></i>
+                <span>Demander le prix WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- PRODUIT 2 -->
+          <div class="product-card bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between" data-category="emailles">
+            <div>
+              <div class="relative overflow-hidden h-52 bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?q=80&w=800&auto=format&fit=crop" alt="Série d'assiettes et bols émaillés" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+                <span class="absolute top-3 left-3 bg-brand-gold text-gray-900 text-xs font-bold px-2.5 py-1 rounded">Populaire</span>
+              </div>
+              <div class="p-5">
+                <h3 class="font-heading font-bold text-lg text-gray-900">Séries Émaillées à Motifs Fleurs</h3>
+                <p class="text-xs text-gray-500 mt-1">Pots, bols et bols émaillés traditionnels très résistants avec finitions décoratives.</p>
+              </div>
+            </div>
+            <div class="p-5 pt-0">
+              <a href="https://wa.me/22394784483?text=Bonjour%20Boutique%20Sylla,%20je%20souhaite%20connaître%20le%20prix%20des%20Séries%20Émaillées." target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-brand-green text-white font-medium py-2.5 rounded-xl transition-colors text-sm">
+                <i class="fa-brands fa-whatsapp text-lg text-brand-green"></i>
+                <span>Demander le prix WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- PRODUIT 3 -->
+          <div class="product-card bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between" data-category="electro">
+            <div>
+              <div class="relative overflow-hidden h-52 bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1570222094114-d054a817e56b?q=80&w=800&auto=format&fit=crop" alt="Blenders et Mixeurs" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+                <span class="absolute top-3 left-3 bg-brand-gold text-gray-900 text-xs font-bold px-2.5 py-1 rounded">Électrique</span>
+              </div>
+              <div class="p-5">
+                <h3 class="font-heading font-bold text-lg text-gray-900">Mixeurs & Blenders Multifonctions</h3>
+                <p class="text-xs text-gray-500 mt-1">Blenders puissants pour jus de fruits, condiments et épices. Moteurs durables.</p>
+              </div>
+            </div>
+            <div class="p-5 pt-0">
+              <a href="https://wa.me/22378155518?text=Bonjour%20Boutique%20Sylla,%20quel%20est%20le%20prix%20des%20Mixeurs%20Multifonctions%20?" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-brand-green text-white font-medium py-2.5 rounded-xl transition-colors text-sm">
+                <i class="fa-brands fa-whatsapp text-lg text-brand-green"></i>
+                <span>Demander le prix WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- PRODUIT 4 -->
+          <div class="product-card bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between" data-category="accessoires">
+            <div>
+              <div class="relative overflow-hidden h-52 bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1590794056226-77ef3a6c4743?q=80&w=800&auto=format&fit=crop" alt="Thermos et Fontaines d'eau" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="p-5">
+                <h3 class="font-heading font-bold text-lg text-gray-900">Thermos & Distributeurs d'Eau</h3>
+                <p class="text-xs text-gray-500 mt-1">Thermos isolants pour conserver l'eau chaude/froide et fontaines plastiques renforcées.</p>
+              </div>
+            </div>
+            <div class="p-5 pt-0">
+              <a href="https://wa.me/22379571305?text=Bonjour%20Boutique%20Sylla,%20je%20voudrais%20des%20détails%20sur%20les%20Thermos." target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-brand-green text-white font-medium py-2.5 rounded-xl transition-colors text-sm">
+                <i class="fa-brands fa-whatsapp text-lg text-brand-green"></i>
+                <span>Demander le prix WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- PRODUIT 5 -->
+          <div class="product-card bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between" data-category="marmites">
+            <div>
+              <div class="relative overflow-hidden h-52 bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1583778176476-4a8b02a64c01?q=80&w=800&auto=format&fit=crop" alt="Poêles et Sauteuses" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="p-5">
+                <h3 class="font-heading font-bold text-lg text-gray-900">Poêles & Sauteuses Antiadhésives</h3>
+                <p class="text-xs text-gray-500 mt-1">Poêles antiadhésives de différentes tailles, idéales pour friture et cuisson sans accroche.</p>
+              </div>
+            </div>
+            <div class="p-5 pt-0">
+              <a href="https://wa.me/22376219117?text=Bonjour%20Boutique%20Sylla,%20je%20cherche%20des%20poêles%20antiadhésives." target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-brand-green text-white font-medium py-2.5 rounded-xl transition-colors text-sm">
+                <i class="fa-brands fa-whatsapp text-lg text-brand-green"></i>
+                <span>Demander le prix WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- PRODUIT 6 -->
+          <div class="product-card bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between" data-category="accessoires">
+            <div>
+              <div class="relative overflow-hidden h-52 bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1593618998160-e34014e67546?q=80&w=800&auto=format&fit=crop" alt="Service de couteaux et louches" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+              </div>
+              <div class="p-5">
+                <h3 class="font-heading font-bold text-lg text-gray-900">Sets de Couteaux & Louches</h3>
+                <p class="text-xs text-gray-500 mt-1">Ensembles complets d'ustensiles de service en acier inoxydable avec support de rangement.</p>
+              </div>
+            </div>
+            <div class="p-5 pt-0">
+              <a href="https://wa.me/22394784483?text=Bonjour%20Boutique%20Sylla,%20je%20souhaite%20commander%20un%20set%20de%20couteaux." target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-brand-green text-white font-medium py-2.5 rounded-xl transition-colors text-sm">
+                <i class="fa-brands fa-whatsapp text-lg text-brand-green"></i>
+                <span>Demander le prix WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    
+    <!-- NOUVELLE SECTION : AUTRES PRODUITS -->
+    <section id="autres-produits" class="py-16 bg-white border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-10">
+          <span class="text-brand-darkgold font-semibold text-sm uppercase tracking-wider">
+            Découvrez nos nouveautés
+          </span>
+          <h2 class="font-heading text-2xl sm:text-3xl font-bold text-gray-900 mt-2">
+            Autres produits disponibles
+          </h2>
+          <p class="text-gray-600 text-sm mt-2">
+            Découvrez encore plus d'articles pour votre cuisine.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <!-- NOUVEAU PRODUIT 1 -->
+          <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-all flex flex-col">
+
+            <div class="relative overflow-hidden h-52 bg-gray-100">
+              <img src="images/3pieces.jpg"
+                   alt="Nouveau produit de cuisine"
+                   class="w-full h-full object-cover">
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow">
+              <h3 class="font-heading font-bold text-lg text-gray-900">
+                Innoces 3pieces 
+              </h3>
+
+              <p class="text-sm text-gray-500 mt-2">
+                Ajoutez ici la description du produit.
+              </p>
+
+              <p class="text-xl font-bold text-brand-darkgold mt-4">
+                Prix : à préciser
+              </p>
+
+              <a href="https://wa.me/22376219117?text=Bonjour%20Sylla,%20je%20souhaite%20des%20informations%20sur%20ce%20produit."
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="mt-auto inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-brand-green text-white font-medium py-3 px-4 rounded-xl transition-colors text-sm">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                Demander le prix
+              </a>
+            </div>
+
+          </div>
+
+          <!-- COPIER UNE CARTE ICI POUR AJOUTER D'AUTRES PRODUITS -->
+
+        </div>
+      </div>
+    </section>
+    
+    
+    <!-- NOUVELLE SECTION : AUTRES PRODUITS -->
+    <section id="autres-produits" class="py-16 bg-white border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-10">
+          <span class="text-brand-darkgold font-semibold text-sm uppercase tracking-wider">
+            Découvrez nos nouveautés
+          </span>
+          <h2 class="font-heading text-2xl sm:text-3xl font-bold text-gray-900 mt-2">
+            Autres produits disponibles
+          </h2>
+          <p class="text-gray-600 text-sm mt-2">
+            Découvrez encore plus d'articles pour votre cuisine.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <!-- NOUVEAU PRODUIT 1 -->
+          <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-all flex flex-col">
+
+            <div class="relative overflow-hidden h-52 bg-gray-100">
+              <img src="images/3pieces.jpg"
+                   alt="Nouveau produit de cuisine"
+                   class="w-full h-full object-cover">
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow">
+              <h3 class="font-heading font-bold text-lg text-gray-900">
+                Innoces 3pieces 
+              </h3>
+
+              <p class="text-sm text-gray-500 mt-2">
+            TOUT POUR VOTRE CUISINE, TOUT POUR VOTRE MAISON, TOUT POUR VOTRE COMMERCE
+              </p>
+
+              <p class="text-xl font-bold text-brand-darkgold mt-4">
+                Prix : PASSEZ LE COMMANDE!!
+              </p>
+
+              <a href="https://wa.me/22376219117?text=Bonjour%20Sylla,%20je%20souhaite%20des%20informations%20sur%20ce%20produit."
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="mt-auto inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-brand-green text-white font-medium py-3 px-4 rounded-xl transition-colors text-sm">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                Demander le prix
+              </a>
+            </div>
+
+          </div>
+
+          <!-- COPIER UNE CARTE ICI POUR AJOUTER D'AUTRES PRODUITS -->
+
+        </div>
+      </div>
+    </section>
+
+       <!-- NOUVELLE SECTION : AUTRES PRODUITS -->
+    <section id="autres-produits" class="py-16 bg-white border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-10">
+          <span class="text-brand-darkgold font-semibold text-sm uppercase tracking-wider">
+            Découvrez nos nouveautés
+          </span>
+          <h2 class="font-heading text-2xl sm:text-3xl font-bold text-gray-900 mt-2">
+            Autres produits disponibles
+          </h2>
+          <p class="text-gray-600 text-sm mt-2">
+            Découvrez encore plus d'articles pour votre cuisine.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-6">
+             <!-- NOUVEAU PRODUIT 1 -->
+          <div class="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-all flex flex-col">
+
+            <div class="relative overflow-hidden h-52 bg-gray-100">
+              <img src="images/presse.jpg"
+                   alt="Nouveau produit de cuisine"
+                   class="w-full h-full object-cover">
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow">
+              <h3 class="font-heading font-bold text-lg text-gray-900">
+                PRESSE 
+              </h3>
+
+              <p class="text-sm text-gray-500 mt-2">
+                PRèSSE Caffe innoxes , et Prèsse caffe Fougan  
+              </p>
+
+              <p class="text-xl font-bold text-brand-darkgold mt-4">
+                Prix : PASSEZ LE COMMANDE!!
+              </p>
+
+              <a href="https://wa.me/22376219117?text=Bonjour%20Sylla,%20je%20souhaite%20des%20informations%20sur%20ce%20produit."
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="mt-auto inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-brand-green text-white font-medium py-3 px-4 rounded-xl transition-colors text-sm">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                Demander le prix
+              </a>
+            </div>
+             <!-- NOUVEAU PRODUIT 1 -->
+          <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-all flex flex-col">
+
+            <div class="relative overflow-hidden h-52 bg-gray-100">
+              <img src="images/couverts.jpg"
+                   alt="Nouveau produit de cuisine"
+                   class="w-full h-full object-cover">
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow">
+              <h3 class="font-heading font-bold text-lg text-gray-900">
+                couvert
+              </h3>
+
+              <p class="text-sm text-gray-500 mt-2">
+                Couverts
+              </p>
+
+              <p class="text-xl font-bold text-brand-darkgold mt-4">
+                Prix : PASSEZ LE COMMANDE!!
+              </p>
+
+              <a href="https://wa.me/22376219117?text=Bonjour%20Sylla,%20je%20souhaite%20des%20informations%20sur%20ce%20produit."
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="mt-auto inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-brand-green text-white font-medium py-3 px-4 rounded-xl transition-colors text-sm">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                Demander le prix
+              </a>
+            </div>
+
+          <!-- NOUVEAU PRODUIT 1 -->
+          <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-all flex flex-col">
+
+            <div class="relative overflow-hidden h-52 bg-gray-100">
+              <img src="images/caffetiere.jpg"
+                   alt="Nouveau produit de cuisine"
+                   class="w-full h-full object-cover">
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow">
+              <h3 class="font-heading font-bold text-lg text-gray-900">
+                CAFFETIÈRE
+              </h3>
+
+              <p class="text-sm text-gray-500 mt-2">
+                Caffetière en acier inoxydable, idéale pour préparer du café frais et aromatique.
+              </p>
+
+              <p class="text-xl font-bold text-brand-darkgold mt-4">
+                Prix : PASSEZ LE COMMANDE!!
+              </p>
+
+              <a href="https://wa.me/22376219117?text=Bonjour%20Sylla,%20je%20souhaite%20des%20informations%20sur%20ce%20produit."
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="mt-auto inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-brand-green text-white font-medium py-3 px-4 rounded-xl transition-colors text-sm">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                Demander le prix
+              </a>
+            </div>
+
+          </div>
+           <!-- NOUVEAU PRODUIT 1 -->
+          <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-all flex flex-col">
+
+            <div class="relative overflow-hidden h-52 bg-gray-100">
+              <img src="images/jeux de 6.jpg"
+                   alt="Nouveau produit de cuisine"
+                   class="w-full h-full object-cover">
+            </div>
+
+            <div class="p-5 flex flex-col flex-grow">
+              <h3 class="font-heading font-bold text-lg text-gray-900">
+                innoces colorés
+              </h3>
+
+              <p class="text-sm text-gray-500 mt-2">
+                innoces colorés 6Pièces, 3Pièces  
+              </p>
+
+              <p class="text-xl font-bold text-brand-darkgold mt-4">
+                Prix : PASSEZ LE COMMANDE!!
+              </p>
+
+              <a href="https://wa.me/22376219117?text=Bonjour%20Sylla,%20je%20souhaite%20des%20informations%20sur%20ce%20produit."
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="mt-auto inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-brand-green text-white font-medium py-3 px-4 rounded-xl transition-colors text-sm">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                Demander le prix
+              </a>
+            </div>
+
+
+        </div>
+        
+      </div>
+      
+    </section>
+
+<img src="images/produit-7.jpg"
+     alt="Nouveau produit de cuisine"
+     class="w-full h-full object-cover">
+<img src="images/bassine.jpg"
+
+
+    <!-- SECTION AVANTAGES GROS & DÉTAIL -->
+    <section class="py-16 bg-white border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-brand-gold/20 text-brand-darkgold flex items-center justify-center text-xl shrink-0">
+              <i class="fa-solid fa-boxes-packing"></i>
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-base text-gray-900">Vente en Gros</h3>
+              <p class="text-xs text-gray-600 mt-1">Tarifs préférentiels réservés aux revendeurs, commerçants et organisateurs d'événements.</p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-brand-gold/20 text-brand-darkgold flex items-center justify-center text-xl shrink-0">
+              <i class="fa-solid fa-basket-shopping"></i>
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-base text-gray-900">Vente au Détail</h3>
+              <p class="text-xs text-gray-600 mt-1">Accueil chaleureux en magasin pour équiper votre foyer avec des ustensiles durables.</p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-brand-gold/20 text-brand-darkgold flex items-center justify-center text-xl shrink-0">
+              <i class="fa-solid fa-truck-fast"></i>
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-base text-gray-900">Livraison Facile</h3>
+              <p class="text-xs text-gray-600 mt-1">Possibilité d'expédition et d'acheminement partout à Bamako et dans les régions du Mali.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION LOCALISATION -->
+    <section id="localisation" class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-brand-navy rounded-3xl overflow-hidden shadow-2xl text-white">
+          <div class="grid grid-cols-1 lg:grid-cols-2">
+            
+            <div class="p-8 lg:p-12 flex flex-col justify-between">
+              <div>
+                <span class="text-brand-gold font-semibold text-xs uppercase tracking-wider">Où nous trouver ?</span>
+                <h2 class="font-heading text-2xl sm:text-3xl font-bold mt-2">Venez nous rendre visite au magasin</h2>
+                <p class="text-gray-300 text-sm mt-3">
+                  Notre magasin principal est situé au cœur commercial de Bamako, facile d'accès pour toutes vos emplettes.
+                </p>
+
+                <div class="mt-8 space-y-4 text-sm">
+                  <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-location-dot text-brand-gold text-lg mt-0.5"></i>
+                    <div>
+                      <p class="font-bold">Adresse Complète :</p>
+                      <p class="text-gray-300">Niaréla, près de la Grande Mosquée, Bamako, Mali</p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-clock text-brand-gold text-lg mt-0.5"></i>
+                    <div>
+                      <p class="font-bold">Horaires d'ouverture :</p>
+                      <p class="text-gray-300">Du Lundi au Samedi : 08h00 - 19h00</p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-phone text-brand-gold text-lg mt-0.5"></i>
+                    <div>
+                      <p class="font-bold">Contacts Téléphoniques / WhatsApp :</p>
+                      <p class="text-gray-300">Sylla: 76 21 91 17 | Baine: 94 78 44 83</p>
+                      <p class="text-gray-300">Kada: 78 15 55 18 | Modibo: 79 57 13 05</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-8">
+                <a href="https://wa.me/22376219117?text=Bonjour,%20pouvez-vous%20m'indiquer%20le%20chemin%20exact%20depuis%20la%20Grande%20Mosquée%20?" target="_blank" class="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-darkgold text-gray-900 font-bold px-6 py-3 rounded-xl transition-all text-sm">
+                  <i class="fa-brands fa-whatsapp text-lg"></i>
+                  <span>Demander l'itinéraire sur WhatsApp</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- CARTE GOOGLE MAPS EMBED (BAMAKO NIARELA) -->
+            <div class="h-80 lg:h-auto min-h-[300px] w-full bg-gray-800 relative">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15568.123456789!2d-7.98!3d12.65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDM5JzAwLjAiTiA3wrA1OCcwMC4wIlc!5e0!3m2!1sfr!2sml!4v1600000000000!5m2!1sfr!2sml" 
+                class="w-full h-full border-0 grayscale opacity-90 hover:grayscale-0 transition-all duration-300" 
+                allowfullscreen="" 
+                loading="lazy">
+              </iframe>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-400 py-10 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        
+        <div>
+          <a href="#" class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full bg-brand-gold flex items-center justify-center text-gray-900 font-bold text-sm">
+              <i class="fa-solid fa-utensils"></i>
+            </div>
+            <span class="font-heading font-extrabold text-lg text-white">BOUTIQUE SYLLA & FILS</span>
+          </a>
+          <p class="text-xs text-gray-500 mt-1">Vente en gros et détail d'ustensiles de cuisine à Niaréla, Bamako.</p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-6 text-xs text-gray-300">
+          <a href="#accueil" class="hover:text-brand-gold">Accueil</a>
+          <a href="#catalogue" class="hover:text-brand-gold">Catalogue</a>
+          <a href="#vendeurs" class="hover:text-brand-gold">Vendeurs</a>
+          <a href="#localisation" class="hover:text-brand-gold">Localisation</a>
+        </div>
+
+        <div class="text-xs text-gray-500 text-center md:text-right">
+          <p>&copy; 2026 Boutique Sylla & Fils. Tous droits réservés.</p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOUTON FLOTTANT WHATSAPP GLOBAL -->
+  <a href="https://wa.me/22376219117?text=Bonjour%20Boutique%20Sylla%20%26%20Fils" target="_blank" class="fixed bottom-6 right-6 bg-brand-green text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform z-50 group" aria-label="Contactez-nous sur WhatsApp">
+    <i class="fa-brands fa-whatsapp text-3xl"></i>
+    <span class="absolute right-16 bg-gray-900 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity shadow-md pointer-events-none">
+      Discuter sur WhatsApp
+    </span>
+  </a>
+
+  <!-- SCRIPT JAVASCRIPT -->
+  <script>
+    // Menu mobile bascule
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Filtre des produits du catalogue
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Enlever classe active
+        filterBtns.forEach(b => {
+          b.classList.remove('active', 'bg-brand-darkgold', 'text-white');
+          b.classList.add('bg-white', 'text-gray-700');
+        });
+
+        // Activer le bouton cliqué
+        btn.classList.add('active', 'bg-brand-darkgold', 'text-white');
+        btn.classList.remove('bg-white', 'text-gray-700');
+
+        const filter = btn.getAttribute('data-category');
+
+        productCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
