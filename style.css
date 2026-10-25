@@ -1,0 +1,91 @@
+/* Importation des polices Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap');
+
+/* Reset et variables globales */
+:root {
+  --color-gold: #D4AF37;
+  --color-darkgold: #B8860B;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-dark: #128C7E;
+  --color-navy: #0F172A;
+  --color-dark: #111827;
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #f9fafb;
+  color: #1f2937;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Styles personnalisés pour la boutique */
+.bg-navy {
+  background-color: var(--color-navy);
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+.bg-gold {
+  background-color: var(--color-gold);
+}
+
+.bg-whatsapp {
+  background-color: var(--color-whatsapp);
+}
+
+.bg-whatsapp:hover {
+  background-color: var(--color-whatsapp-dark);
+}
+
+/* Boutons de filtre du catalogue */
+.filter-btn {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  background-color: var(--color-darkgold) !important;
+  color: #ffffff !important;
+}
+
+/* Cartes de produits et vendeurs */
+.product-card, .vendeur-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Bouton flottant WhatsApp avec pulsation */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: var(--color-whatsapp);
+  color: white;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: justify-center;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}

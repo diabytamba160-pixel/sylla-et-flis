@@ -1,0 +1,20 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "produits"
+    label: "Catalogue Produits"
+    folder: "_produits"
+    create: true
+    slug: "{{slug}}"
+    format: "yaml"
+    fields:
+      - { label: "Nom du produit", name: "title", widget: "string" }
+      - { label: "Prix (FCFA)", name: "price", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Photo du produit", name: "image", widget: "image" }
+      - { label: "Numéro WhatsApp Vendeur", name: "phone", widget: "select", options: ["22376219117", "22394784483", "22378155518", "22379571305"] }
