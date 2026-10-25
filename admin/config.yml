@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: diabytamba160-pixel/Sylla-et-flis
   branch: main
 
 media_folder: "images"
@@ -7,14 +8,13 @@ public_folder: "/images"
 
 collections:
   - name: "produits"
-    label: "Catalogue Produits"
+    label: "Produits"
     folder: "_produits"
     create: true
     slug: "{{slug}}"
-    format: "yaml"
+    format: "yaml-frontmatter"
     fields:
       - { label: "Nom du produit", name: "title", widget: "string" }
-      - { label: "Prix (FCFA)", name: "price", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Photo du produit", name: "image", widget: "image" }
-      - { label: "Numéro WhatsApp Vendeur", name: "phone", widget: "select", options: ["22376219117", "22394784483", "22378155518", "22379571305"] }
+      - { label: "Prix en FCFA", name: "prix", widget: "number", value_type: "int" }
+      - { label: "Photo", name: "image", widget: "image" }
+      - { label: "Description", name: "description", widget: "text", required: false }

@@ -255,7 +255,7 @@
                 M
               </div>
               <h3 class="font-heading font-bold text-lg text-gray-900">MODIBO</h3>
-              <p class="text-xs text-emerald-600 font-semibold uppercase tracking-wider mb-2">Service Client Comptable
+              <p class="text-xs text-emerald-600 font-semibold uppercase tracking-wider mb-2">Service Client Comptable</p>
               <p class="text-gray-600 text-sm font-semibold mb-6">79 57 13 05</p>
             </div>
             <a href="https://wa.me/22379571305?text=Bonjour%20M.%20Modibo,%20je%20souhaite%20un%20renseignement." target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-brand-green hover:bg-brand-darkgreen text-white font-medium py-2.5 px-4 rounded-xl transition-all text-sm">
@@ -264,29 +264,25 @@
             </a>
           </div>
 
-        </div>
-      </div>
-    </section>
-    <!-- VENDEUR 5:-->
+          <!-- VENDEUR 5 : BAKO -->
           <div class="bg-gradient-to-b from-gray-50 to-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all text-center flex flex-col justify-between">
             <div>
               <div class="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold font-heading">
                 B
               </div>
-              <h3 class="font-heading font-bold text-lg text-gray-900">BAKO
-              <p class="text-xs text-emerald-600 font-semibold uppercase tracking-wider mb-2">MAGASINIER
-              <p class="text-gray-600 text-sm font-semibold mb-6">68 88 07 13
+              <h3 class="font-heading font-bold text-lg text-gray-900">BAKO</h3>
+              <p class="text-xs text-emerald-600 font-semibold uppercase tracking-wider mb-2">Magasinier</p>
+              <p class="text-gray-600 text-sm font-semibold mb-6">68 88 07 13</p>
             </div>
-            <a href="https://wa.me/22379571305?text=Bonjour%20M.%20Modibo,%20je%20souhaite%20un%20renseignement." target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-brand-green hover:bg-brand-darkgreen text-white font-medium py-2.5 px-4 rounded-xl transition-all text-sm">
+            <a href="https://wa.me/22368880713?text=Bonjour%20M.%20Bako,%20je%20souhaite%20un%20renseignement." target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-brand-green hover:bg-brand-darkgreen text-white font-medium py-2.5 px-4 rounded-xl transition-all text-sm">
               <i class="fa-brands fa-whatsapp text-lg"></i>
-              <span>WhatsAp bako Zy
+              <span>WhatsApp Bako</span>
             </a>
           </div>
 
         </div>
       </div>
     </section>
-
 
     <!-- SECTION CATALOGUE PRODUITS -->
     <section id="catalogue" class="py-16 bg-gray-50 border-t border-gray-200">
@@ -790,7 +786,7 @@
                       <p class="font-bold">Contacts Téléphoniques / WhatsApp :</p>
                       <p class="text-gray-300">Sylla: 76 21 91 17 | Baine: 94 78 44 83</p>
                       <p class="text-gray-300">Kada: 78 15 55 18 | Modibo: 79 57 13 05</p>
-                      <p class="text-gray-300">Bako:68 88 07 13
+                      <p class="text-gray-300">Bako: 68 88 07 13</p>
                     </div>
                   </div>
                 </div>
@@ -845,9 +841,8 @@
 
         <div class="text-xs text-gray-500 text-center md:text-right">
           <p>&copy; 2026 Boutique Sylla & Fils. Tous droits réservés.</p>
-          <p >DIABY-TAMBA</p>
+          <p>DIABY-TAMBA</p>
         </div>
-      
 
       </div>
     </div>
@@ -861,45 +856,51 @@
     </span>
   </a>
 
+  <!-- SCRIPT JAVASCRIPT -->
+  <script>
+    // Menu mobile bascule
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
 
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
 
-  
-</script>
-<script>
-  (async () => {
-    const grille = document.querySelector('#product-grid');
-    if (!grille) return;
+    // Filtre des produits du catalogue
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
 
-    try {
-      // On pointe directement vers le dossier où Netlify enregistre vos produits
-      const r = await fetch(
-        'https://api.github.com/repos/diabytamba160-pixel/Sylla-et-flis/contents/_produits/produit?ref=main'
-      );
-      if (!r.ok) return;
-      
-      const fichiers = await r.json();
-      const produits = [];
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Enlever classe active
+        filterBtns.forEach(b => {
+          b.classList.remove('active', 'bg-brand-darkgold', 'text-white');
+          b.classList.add('bg-white', 'text-gray-700');
+        });
 
-      for (const f of fichiers) {
-        if (f.name.endsWith('.md') || f.name.endsWith('.json')) {
-          // Si c'est du texte Markdown ou JSON, on récupère le contenu
-          const res = await fetch(f.download_url);
-          const texte = await res.text();
-          produits.push({ name: f.name, text: texte });
-        }
-      }
+        // Activer le bouton cliqué
+        btn.classList.add('active', 'bg-brand-darkgold', 'text-white');
+        btn.classList.remove('bg-white', 'text-gray-700');
 
-      if (!produits.length) return;
+        const filter = btn.getAttribute('data-category');
 
-      // Votre grille se mettra à jour automatiquement ici
-    } catch (e) {
-      console.log("Mode normal actif");
-    }
-  })();
-</script>
+        productCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
 
-  
 </body>
 </html>
