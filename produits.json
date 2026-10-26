@@ -1,0 +1,103 @@
+{
+  "produits": [
+    {
+      "title": "Série Marmites Inox Récurées",
+      "prix": null,
+      "image": "https://images.unsplash.com/photo-1584992236310-6edddc08acff?q=80&w=800&auto=format&fit=crop",
+      "description": "Set complet de 5 à 10 marmites haute résistance pour ménage et événements.",
+      "category": "marmites",
+      "badge": "Gros & Détail",
+      "whatsapp": "22376219117"
+    },
+    {
+      "title": "Séries Émaillées à Motifs Fleurs",
+      "prix": null,
+      "image": "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?q=80&w=800&auto=format&fit=crop",
+      "description": "Pots, bols et bols émaillés traditionnels très résistants avec finitions décoratives.",
+      "category": "emailles",
+      "badge": "Populaire",
+      "whatsapp": "22394784483"
+    },
+    {
+      "title": "Mixeurs & Blenders Multifonctions",
+      "prix": null,
+      "image": "https://images.unsplash.com/photo-1570222094114-d054a817e56b?q=80&w=800&auto=format&fit=crop",
+      "description": "Blenders puissants pour jus de fruits, condiments et épices. Moteurs durables.",
+      "category": "electro",
+      "badge": "Électrique",
+      "whatsapp": "22378155518"
+    },
+    {
+      "title": "Thermos & Distributeurs d'Eau",
+      "prix": null,
+      "image": "https://images.unsplash.com/photo-1590794056226-77ef3a6c4743?q=80&w=800&auto=format&fit=crop",
+      "description": "Thermos isolants pour conserver l'eau chaude/froide et fontaines plastiques renforcées.",
+      "category": "accessoires",
+      "badge": "",
+      "whatsapp": "22379571305"
+    },
+    {
+      "title": "Poêles & Sauteuses Antiadhésives",
+      "prix": null,
+      "image": "https://images.unsplash.com/photo-1583778176476-4a8b02a64c01?q=80&w=800&auto=format&fit=crop",
+      "description": "Poêles antiadhésives de différentes tailles, idéales pour friture et cuisson sans accroche.",
+      "category": "marmites",
+      "badge": "",
+      "whatsapp": "22376219117"
+    },
+    {
+      "title": "Sets de Couteaux & Louches",
+      "prix": null,
+      "image": "https://images.unsplash.com/photo-1593618998160-e34014e67546?q=80&w=800&auto=format&fit=crop",
+      "description": "Ensembles complets d'ustensiles de service en acier inoxydable avec support de rangement.",
+      "category": "accessoires",
+      "badge": "",
+      "whatsapp": "22394784483"
+    },
+    {
+      "title": "Inox 3 pièces",
+      "prix": null,
+      "image": "/images/3pieces.jpg",
+      "description": "Ensemble de trois pièces en inox.",
+      "category": "marmites",
+      "badge": "",
+      "whatsapp": "22376219117"
+    },
+    {
+      "title": "Presse à café",
+      "prix": null,
+      "image": "/images/presse.jpg",
+      "description": "Presse à café inox et presse à café Fougan.",
+      "category": "accessoires",
+      "badge": "",
+      "whatsapp": "22376219117"
+    },
+    {
+      "title": "Couverts",
+      "prix": null,
+      "image": "/images/couverts.jpg",
+      "description": "Couverts.",
+      "category": "accessoires",
+      "badge": "",
+      "whatsapp": "22376219117"
+    },
+    {
+      "title": "Cafetière",
+      "prix": 6000,
+      "image": "/images/caffetiere.jpg",
+      "description": "Cafetière en acier inoxydable, idéale pour préparer du café frais et aromatique.",
+      "category": "accessoires",
+      "badge": "",
+      "whatsapp": "22376219117"
+    },
+    {
+      "title": "Inox colorés",
+      "prix": 38000,
+      "image": "/images/jeux de 6.jpg",
+      "description": "Inox colorés en 6 pièces et 3 pièces.",
+      "category": "marmites",
+      "badge": "",
+      "whatsapp": "22376219117"
+    }
+  ]
+}

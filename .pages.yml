@@ -1,26 +1,62 @@
-
 media:
   input: images
   output: /images
+  rename: safe
 
 content:
   - name: produits
-    label: Produits
-    type: collection
-    path: _produits
-    filename: "{primary}.md"
-    format: yaml-frontmatter
+    label: Catalogue des produits
+    type: file
+    path: produits.json
+    format: json
     fields:
-      - name: title
-        label: Nom du produit
-        type: string
-      - name: prix
-        label: Prix en FCFA
-        type: number
-      - name: image
-        label: Photo
-        type: image
-      - name: description
-        label: Description
-        type: text
+      - name: produits
+        label: Produits
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Nom du produit
+            type: string
+            required: true
+          - name: prix
+            label: Prix en FCFA
+            type: number
+            required: false
+          - name: image
+            label: Photo du produit
+            type: image
+            required: true
+          - name: description
+            label: Description
+            type: text
+            required: true
+          - name: category
+            label: Catégorie
+            type: select
+            required: true
+            options:
+              values:
+                - name: marmites
+                  label: Marmites et casseroles
+                - name: emailles
+                  label: Séries émaillées
+                - name: electro
+                  label: Petit électroménager
+                - name: accessoires
+                  label: Accessoires
+          - name: badge
+            label: Petit badge (facultatif)
+            type: string
+            required: false
+          - name: whatsapp
+            label: Numéro WhatsApp international, sans le signe +
+            type: string
+            required: true
+            pattern:
+              regex: "^[0-9]{8,15}$"
+              message: "Saisissez uniquement 8 à 15 chiffres, par exemple 22376219117."
         required: false

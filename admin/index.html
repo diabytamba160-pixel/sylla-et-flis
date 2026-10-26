@@ -1,11 +1,52 @@
 <!doctype html>
-<html>
+<html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Administration - Boutique Sylla</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f172a">
+  <title>Administration | Boutique Sylla &amp; Fils</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 24px;
+      display: grid;
+      place-items: center;
+      background: #f3f4f6;
+      color: #111827;
+      font: 16px/1.6 Arial, sans-serif;
+    }
+    main {
+      width: min(100%, 560px);
+      padding: clamp(24px, 6vw, 48px);
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 16px 48px #0f172a18;
+    }
+    h1 { margin: 0 0 12px; color: #0f172a; font-size: clamp(26px, 6vw, 36px); }
+    p { color: #4b5563; }
+    a.button {
+      display: block;
+      margin: 24px 0;
+      padding: 14px 20px;
+      border-radius: 12px;
+      background: #b8860b;
+      color: white;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+    }
+    a.button:focus-visible { outline: 3px solid #0f172a; outline-offset: 3px; }
+    .note { padding: 14px; border-radius: 12px; background: #f9fafb; font-size: 14px; }
+  </style>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <main>
+    <h1>Gestion de la boutique</h1>
+    <p>Modifiez les photos et les prix du catalogue depuis votre téléphone ou votre ordinateur, sans modifier le code du site.</p>
+    <a class="button" href="https://app.pagescms.org/" target="_blank" rel="noopener noreferrer">Ouvrir l'administration</a>
+    <p class="note">Connectez-vous avec votre compte GitHub, choisissez le dépôt <strong>Sylla-et-flis</strong>, puis ouvrez <strong>Catalogue des produits</strong>. Pour autoriser un membre de la boutique, le propriétaire du dépôt doit d'abord lui donner l'accès « Write » aux paramètres du dépôt GitHub.</p>
+  </main>
 </body>
 </html>
