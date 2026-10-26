@@ -4,6 +4,16 @@ media:
   rename: safe
 
 content:
+  - name: accueil
+    label: Image de la page d'accueil
+    type: file
+    path: site.json
+    format: json
+    fields:
+      - name: hero_image
+        label: Grande photo de la page d'accueil
+        type: image
+        required: true
   - name: produits
     label: Catalogue des produits
     type: file
